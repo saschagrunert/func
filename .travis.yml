@@ -1,0 +1,13 @@
+---
+sudo: false
+
+language: generic
+
+matrix:
+  include:
+    - compiler: ": default (linux)"
+    - compiler: ": default (macOS)"
+      os: osx
+
+script:
+  - make

@@ -3,6 +3,10 @@
 #ifndef INCLUDE_FUNC_H_
 #define INCLUDE_FUNC_H_
 
+#ifndef NULL
+#define NULL ((void *)0)
+#endif
+
 #include "Either.h"
 #include "Maybe.h"
 

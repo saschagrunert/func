@@ -37,9 +37,10 @@
 /**
  * @brief Creates a new named 'Either'
  */
-#define EITHER(a, b, n) \
-    typedef t n;        \
-    EITHER_TYPE(a, b)
+#define EITHER(a, b, c, d) \
+    typedef a b;           \
+    typedef c d;           \
+    EITHER_TYPE(b, d)
 
 /**
  * @brief Check if the Either contains Left data

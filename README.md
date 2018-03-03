@@ -1,5 +1,4 @@
-# func - Functional additions to C
-[![Build Status](https://travis-ci.org/saschagrunert/func.svg)](https://travis-ci.org/saschagrunert/func)
+# func - Functional additions to C [![Build Status](https://travis-ci.org/saschagrunert/func.svg)](https://travis-ci.org/saschagrunert/func)
 
 Func provides - header only - functional additions to the C language. For now,
 the following features are included:

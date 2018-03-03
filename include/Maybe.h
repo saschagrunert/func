@@ -3,6 +3,8 @@
 #ifndef INCLUDE_MAYBE_H_
 #define INCLUDE_MAYBE_H_
 
+#include "Func.h"
+
 /**
  * @brief The 'Maybe' type declaration
  */
@@ -21,17 +23,25 @@
  */
 #define Nothing(t)                 \
     (Maybe(t)) {                   \
-        .just = 0, .data = (t)NULL \
+        .just = 0, .data = null(t) \
     }
 
 /**
  * @brief Creates a new 'Maybe' type
  */
-#define MAYBE_TYPE(t) \
-    typedef struct {  \
-        int just;     \
-        t data;       \
-    } Maybe(t)
+#define MAYBE_TYPE(t)            \
+    typedef struct {             \
+        int just;                \
+        t data;                  \
+    } Maybe(t);                  \
+    Maybe(t) Just_##t(t val);    \
+    Maybe(t) Just_##t(t val) {   \
+        return Just(t, val);     \
+    }                            \
+    Maybe(t) Nothing_##t(void);  \
+    Maybe(t) Nothing_##t(void) { \
+        return Nothing(t);       \
+    }
 
 /**
  * @brief Creates a new named 'Maybe'

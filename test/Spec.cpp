@@ -3,14 +3,13 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
-#include "../include/Either.h"
-#include "../include/Maybe.h"
+#include "../include/Func.h"
+
+MAYBE(int, foo);
 
 SCENARIO("Maybe Data Type", "[Maybe]") {
-    MAYBE_TYPE(int);
-
     GIVEN("A None Maybe value for integers") {
-        Maybe(int) sut = Nothing(int);
+        Maybe(foo) sut = Nothing_foo();
 
         WHEN("checking the default value") {
             THEN("it should be nothing") {
@@ -30,7 +29,7 @@ SCENARIO("Maybe Data Type", "[Maybe]") {
     }
 
     GIVEN("A Just Maybe value for integers") {
-        Maybe(int) sut = Just(int, 2);
+        Maybe(foo) sut = Just_foo(2);
 
         WHEN("checking the default value") {
             THEN("it should be nothing") {
@@ -50,11 +49,11 @@ SCENARIO("Maybe Data Type", "[Maybe]") {
     }
 }
 
-SCENARIO("Either Data Type", "[Either]") {
-    EITHER_TYPE(int, char);
+EITHER(int, foo, char, bar);
 
+SCENARIO("Either Data Type", "[Either]") {
     GIVEN("A Left Either type for integers and chars") {
-        Either(int, char) sut = Left(int, char, 0);
+        Either(foo, bar) sut = Left_foo_bar(0);
 
         WHEN("checking the default value") {
             THEN("it should be Left") {
@@ -83,7 +82,7 @@ SCENARIO("Either Data Type", "[Either]") {
     }
 
     GIVEN("A Right Either type for integers and chars") {
-        Either(int, char) sut = Right(int, char, 'c');
+        Either(foo, bar) sut = Right_foo_bar('c');
 
         WHEN("checking the default value") {
             THEN("it should be Right") {

@@ -30,7 +30,7 @@ The type can be used like this:
 MAYBE(int, foo);
 
 int main(void) {
-    Maybe(foo) maybeFoo = Just(foo, 2);
+    Maybe(foo) maybeFoo = Just_foo(2);
 
     /* check if the Maybe value contains nothing */
     if (isNothing(maybeFoo)) {
@@ -68,7 +68,7 @@ also means "correct").
 EITHER(int, foo, char, bar);
 
 int main(void) {
-    Either(foo, bar) eitherFooOrBar = Right(foo, bar, 'a');
+    Either(foo, bar) eitherFooOrBar = Right_foo_bar('a');
 
     if (isLeft(eitherFooOrBar)) {
         /* wont be executed */

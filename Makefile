@@ -6,6 +6,8 @@ CC = g++
 all: test
 
 test:
-	@curl $(CATCH_URL) -so test/catch.hpp
+	@if [ ! -f test/catch.hpp ]; then \
+		curl $(CATCH_URL) -so test/catch.hpp ;\
+	fi
 	$(CC) -std=gnu++11 -Wall -Wextra -Werror test/Spec.cpp -o Spec
 	./Spec -s

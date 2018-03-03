@@ -29,6 +29,9 @@ The type can be used like this:
 
 MAYBE(int, foo);
 
+/* Alternatively, if you dont need the 'foo' synonym:
+ * MAYBE_TYPE(int); */
+
 int main(void) {
     Maybe(foo) maybeFoo = Just_foo(2);
 
@@ -66,6 +69,9 @@ also means "correct").
 #include "include/Func.h"
 
 EITHER(int, foo, char, bar);
+
+/* Alternatively, if you dont need the 'foo' and 'bar' synonyms:
+ * EITHER_TYPE(int, char); */
 
 int main(void) {
     Either(foo, bar) eitherFooOrBar = Right_foo_bar('a');

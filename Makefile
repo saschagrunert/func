@@ -7,5 +7,5 @@ all: test
 
 test:
 	@curl $(CATCH_URL) -so test/catch.hpp
-	$(CC) -Wall -Wextra -Werror test/Spec.cpp -o Spec
+	$(CC) -std=gnu++11 -Wall -Wextra -Werror test/Spec.cpp -o Spec
 	./Spec -s

@@ -9,9 +9,9 @@
 /**
  * @brief Version definition
  */
-#define FUNC_VERSION "0.2.0"
+#define FUNC_VERSION "0.3.0"
 #define FUNC_VERSION_MAJOR 0
-#define FUNC_VERSION_MINOR 2
+#define FUNC_VERSION_MINOR 3
 #define FUNC_VERSION_PATCH 0
 
 /**

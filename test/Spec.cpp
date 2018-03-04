@@ -19,8 +19,7 @@ SCENARIO("Maybe Data Type", "[Maybe]") {
         }
 
         WHEN("retrieving the inner value") {
-            int t = 1;
-            fromJust(sut, t);
+            int t = fromMaybe(1, sut);
 
             THEN("it should fail") {
                 REQUIRE(t == 1);
@@ -39,8 +38,7 @@ SCENARIO("Maybe Data Type", "[Maybe]") {
         }
 
         WHEN("retrieving the inner value") {
-            int t = 0;
-            fromJust(sut, t);
+            int t = fromMaybe(0, sut);
 
             THEN("it should succeed") {
                 REQUIRE(t == 2);
@@ -63,8 +61,7 @@ SCENARIO("Either Data Type", "[Either]") {
         }
 
         WHEN("retrieving the Left value") {
-            int t = 1;
-            fromLeft(sut, t);
+            int t = fromLeft(1, sut);
 
             THEN("it should succeed") {
                 REQUIRE(t == 0);
@@ -72,8 +69,7 @@ SCENARIO("Either Data Type", "[Either]") {
         }
 
         WHEN("retrieving the Right value") {
-            int t = 1;
-            fromRight(sut, t);
+            int t = fromRight(1, sut);
 
             THEN("it should fail") {
                 REQUIRE(t == 1);
@@ -92,8 +88,7 @@ SCENARIO("Either Data Type", "[Either]") {
         }
 
         WHEN("retrieving the Right value") {
-            char t = 'a';
-            fromRight(sut, t);
+            char t = fromRight('a', sut);
 
             THEN("it should succeed") {
                 REQUIRE(t == 'c');
@@ -101,8 +96,7 @@ SCENARIO("Either Data Type", "[Either]") {
         }
 
         WHEN("retrieving the Left value") {
-            int t = 1;
-            fromLeft(sut, t);
+            int t = fromLeft(1, sut);
 
             THEN("it should fail") {
                 REQUIRE(t == 1);

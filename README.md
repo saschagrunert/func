@@ -48,7 +48,7 @@ int main(void) {
     /* Extract the content to `t`.
        Will evaluate to the default value '0'
        if the maybeFoo would be 'Nothing' */
-    int t = fromJust(0, maybeFoo);
+    int t = fromMaybe(0, maybeFoo);
 
     /* t will be `2` now */
 

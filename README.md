@@ -45,9 +45,10 @@ int main(void) {
         /* will be executed */
     }
 
-    /* Extract the content to `t` */
-    int t = 0;
-    fromJust(maybeFoo, t);
+    /* Extract the content to `t`.
+       Will evaluate to the default value '0'
+       if the maybeFoo would be 'Nothing' */
+    int t = fromJust(0, maybeFoo);
 
     /* t will be `2` now */
 
@@ -84,17 +85,19 @@ int main(void) {
         /* will be executed */
     }
 
-    /* Try to extract the Left content to `x` */
-    char x = 1;
-    fromLeft(eitherFooOrBar, x);
+    /* Try to extract the Left content to `x`.
+       Will evaluate to the default '1' if the
+       Either type would be 'Right' */
+    int x = fromLeft(1, eitherFooOrBar);
 
-    /* x will remain '1' */
+    /* x will be '1' */
 
-    /* Try to extract the Right content to `y` */
-    char y = ' ';
-    fromRight(eitherFooOrBar, y);
+    /* Try to extract the Right content to `y`.
+       Will evaluate to the default ' ' if the
+       Either type is 'Left' */
+    char y = fromRight(' ', eitherFooOrBar);
 
-    /* y will be 'a' now */
+    /* y will be 'a' */
 
     return 0;
 }

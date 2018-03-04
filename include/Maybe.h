@@ -61,8 +61,10 @@
 #define isNothing(o) (!isJust(o))
 
 /**
- * @brief Retrieve the data if possible
+ * @brief Takes a default value and a Maybe value. If the Maybe is Nothing,
+ *        it returns the default values; otherwise, it returns the value
+ *        contained in the Maybe.
  */
-#define fromJust(o, x) (isJust(o) ? x = o.data : x)
+#define fromMaybe(x, o) (isJust(o) ? o.data : x)
 
 #endif  // INCLUDE_MAYBE_H_

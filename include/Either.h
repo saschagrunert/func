@@ -65,11 +65,11 @@
 /**
  * @brief Retrieve the Left data if possible
  */
-#define fromLeft(o, x) (isLeft(o) ? x = o.leftData : x)
+#define fromLeft(x, o) (isLeft(o) ? o.leftData : x)
 
 /**
  * @brief Retrieve the Right data if possible
  */
-#define fromRight(o, x) (isRight(o) ? x = o.rightData : x)
+#define fromRight(x, o) (isRight(o) ? o.rightData : x)
 
 #endif  // INCLUDE_EITHER_H_

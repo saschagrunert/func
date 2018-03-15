@@ -18,6 +18,7 @@ include the main header file:
 ## Usage
 
 ### Maybe
+
 A Maybe type is a polymorphic type that represents encapsulation of an optional
 value.
 
@@ -30,6 +31,11 @@ MAYBE(int, foo);
 
 /* Alternatively, if you dont need the 'foo' synonym:
  * MAYBE_TYPE(int); */
+ 
+ /* Maybe will only take struct pointers */
+struct bar { int value; };
+MAYBE(struct bar *, bar);
+/* MAYBE(struct bar, bar); */ /* ERROR */
 
 int main(void) {
     Maybe(foo) maybeFoo = Just_foo(2);
@@ -72,6 +78,11 @@ EITHER(int, foo, char, bar);
 
 /* Alternatively, if you dont need the 'foo' and 'bar' synonyms:
  * EITHER_TYPE(int, char); */
+ 
+ /* Either will only take struct pointers */
+struct baz { int value; };
+EITHER(struct baz *, baz, char, bax);
+/* EITHER(struct baz, baz, char, bax); */ /* ERROR */
 
 int main(void) {
     Either(foo, bar) eitherFooOrBar = Right_foo_bar('a');

@@ -18,7 +18,6 @@ include the main header file:
 ## Usage
 
 ### Maybe
-
 A Maybe type is a polymorphic type that represents encapsulation of an optional
 value.
 
@@ -46,8 +45,8 @@ int main(void) {
     }
 
     /* Extract the content to `t`.
-       Will evaluate to the default value '0'
-       if the maybeFoo would be 'Nothing' */
+     * Will evaluate to the default value '0'
+     * if the maybeFoo would be 'Nothing' */
     int t = fromMaybe(0, maybeFoo);
 
     /* t will be `2` now */
@@ -86,15 +85,15 @@ int main(void) {
     }
 
     /* Try to extract the Left content to `x`.
-       Will evaluate to the default '1' if the
-       Either type would be 'Right' */
+     * Will evaluate to the default '1' if the
+     * Either type would be 'Right' */
     int x = fromLeft(1, eitherFooOrBar);
 
     /* x will be '1' */
 
     /* Try to extract the Right content to `y`.
-       Will evaluate to the default ' ' if the
-       Either type is 'Left' */
+     * Will evaluate to the default ' ' if the
+     * Either type is 'Left' */
     char y = fromRight(' ', eitherFooOrBar);
 
     /* y will be 'a' */

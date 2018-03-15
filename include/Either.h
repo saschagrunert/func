@@ -35,11 +35,15 @@
         a leftData;                     \
         b rightData;                    \
     } Either(a, b);                     \
+    static                              \
     Either(a, b) Left_##a##_##b(a v);   \
+    static                              \
     Either(a, b) Left_##a##_##b(a v) {  \
         return Left(a, b, v);           \
     }                                   \
+    static                              \
     Either(a, b) Right_##a##_##b(b v);  \
+    static                              \
     Either(a, b) Right_##a##_##b(b v) { \
         return Right(a, b, v);          \
     }

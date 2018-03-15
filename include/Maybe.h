@@ -34,11 +34,15 @@
         int just;                \
         t data;                  \
     } Maybe(t);                  \
+    static                       \
     Maybe(t) Just_##t(t val);    \
+    static                       \
     Maybe(t) Just_##t(t val) {   \
         return Just(t, val);     \
     }                            \
+    static                       \
     Maybe(t) Nothing_##t(void);  \
+    static                       \
     Maybe(t) Nothing_##t(void) { \
         return Nothing(t);       \
     }

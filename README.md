@@ -31,6 +31,11 @@ MAYBE(int, foo);
 
 /* Alternatively, if you dont need the 'foo' synonym:
  * MAYBE_TYPE(int); */
+ 
+ /* Maybe will only take struct pointers */
+struct bar { int value; };
+MAYBE(struct bar *, bar);
+/* MAYBE(struct bar, bar); */ /* ERROR */
 
 int main(void) {
     Maybe(foo) maybeFoo = Just_foo(2);
@@ -46,8 +51,8 @@ int main(void) {
     }
 
     /* Extract the content to `t`.
-       Will evaluate to the default value '0'
-       if the maybeFoo would be 'Nothing' */
+     * Will evaluate to the default value '0'
+     * if the maybeFoo would be 'Nothing' */
     int t = fromMaybe(0, maybeFoo);
 
     /* t will be `2` now */
@@ -73,6 +78,11 @@ EITHER(int, foo, char, bar);
 
 /* Alternatively, if you dont need the 'foo' and 'bar' synonyms:
  * EITHER_TYPE(int, char); */
+ 
+ /* Either will only take struct pointers */
+struct baz { int value; };
+EITHER(struct baz *, baz, char, bax);
+/* EITHER(struct baz, baz, char, bax); */ /* ERROR */
 
 int main(void) {
     Either(foo, bar) eitherFooOrBar = Right_foo_bar('a');
@@ -86,15 +96,15 @@ int main(void) {
     }
 
     /* Try to extract the Left content to `x`.
-       Will evaluate to the default '1' if the
-       Either type would be 'Right' */
+     * Will evaluate to the default '1' if the
+     * Either type would be 'Right' */
     int x = fromLeft(1, eitherFooOrBar);
 
     /* x will be '1' */
 
     /* Try to extract the Right content to `y`.
-       Will evaluate to the default ' ' if the
-       Either type is 'Left' */
+     * Will evaluate to the default ' ' if the
+     * Either type is 'Left' */
     char y = fromRight(' ', eitherFooOrBar);
 
     /* y will be 'a' */
